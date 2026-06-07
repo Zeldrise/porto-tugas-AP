@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>POS System</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <h2>Sistem Kasir</h2>
+
+    <div class="input-group">
+      <input type="text" id="nama" placeholder="Nama Barang">
+      <input type="number" id="harga" placeholder="Harga">
+      <input type="number" id="jumlah" placeholder="Jumlah Barang">
+      <button class="btn-add" onclick="tambahBarang()">Tambah!</button>
+    </div>
+    <table id="tabelBarang">
+      <thead>
+        <tr>
+          <th>Nama Barang</th>
+          <th>Harga</th>
+          <th>Qty</th>
+          <th>Subtotal</th>
+        </tr>
+      </thead>
+      <tbody>
+
+      </tbody>
+    </table>
+    <button class="btn-process" onclick="hitungFinal()">Proses Pembayaran</button>
+    <div id="hasil" class="summary" style="display: none;">
+      <p>Total Belanja: <span id="resTotal"></span></p>
+      <p>Diskon 5% jika > 200 rb: <span id="resDiskon"></span></p>
+      <p>Pajak (11%): <span id="resPajak"></span></p>
+      <hr>
+      <h4>Total Akhir: <span id="resFinal" class="highlight"></span></h4>
+    </div>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>

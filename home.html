@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portofolio Tugas Algoritma - Fandi Eka Pratama</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <h1>Portofolio Tugas Praktikum Algoritma Pemrograman</h1>
+        <p>Nama: Fandi Eka Pratama | NIM: 250403010024 | Universitas Kanjuruhan Malang (Unikama)</p>
+    </header>
+
+    <div class="tab-menu">
+        <button class="tab-button active" onclick="openTab(event, 'tugas1')">Tugas 1: Pengantar Algoritma</button>
+        <button class="tab-button" onclick="openTab(event, 'tugas2')">Tugas 2: Algoritma Sekuensial</button>
+        <button class="tab-button" onclick="openTab(event, 'tugas3')">Tugas 3: Simulasi Perulangan</button>
+        <button class="tab-button" onclick="openTab(event, 'tugas4')">Tugas 4: Integrasi Web Eksternal</button>
+    </div>
+
+    <div id="tugas1" class="tab-content active">
+        <iframe src="tabs/tugas1.html" title="Tugas 1" style="width: 100%; height: 600px; border: none;"></iframe>
+    </div>
+
+    <div id="tugas2" class="tab-content">
+        <iframe src="tabs/tugas2.html" title="Tugas 2" style="width: 100%; height: 750px; border: none;"></iframe>
+    </div>
+
+    <div id="tugas3" class="tab-content">
+        <iframe src="tabs/tugas3.html" title="Tugas 3" style="width: 100%; height: 850px; border: none;"></iframe>
+    </div>
+
+    <div id="tugas4" class="tab-content">
+        <h2>Tugas Bonus - Sistem Kasir</h2>
+        <div class="app-box" style="background-color: #fff; padding: 10px; border: 1px solid #cbd5e1; border-radius: 8px;">
+            <iframe src="bonus/index.html" title="Sistem Kasir" style="width: 100%; height: 650px; border: none; border-radius: 6px;"></iframe>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

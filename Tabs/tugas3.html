@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../style.css">
+    <style>
+        /* Agar background iframe menyatu dengan halaman utama */
+        body { 
+            background: transparent; 
+            padding: 10px; 
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+    </style>
+</head>
+<body>
+        <h2>Tugas 3 - Implementasi Algoritma Perulangan (Looping)</h2>
+        
+        <div class="alert-info">
+            <strong>Tugas Pemrograman Awal:</strong>
+            <p>Pada modul praktikum ini, tugas awal yang diberikan adalah memahami dan membuat struktur perulangan untuk mengeksekusi blok kode secara berulang selama kondisi terpenuhi. Jenis perulangan yang dipelajari meliputi:</p>
+            <ul style="margin-top: 5px; margin-bottom: 0; margin-left: 15px;">
+                <li><strong>Perulangan <code>for</code>:</strong> Digunakan saat jumlah perulangan sudah diketahui secara pasti (Determinate Loop).</li>
+                <li><strong>Perulangan <code>while</code>:</strong> Digunakan ketika jumlah perulangan belum diketahui pasti dan bergantung pada kondisi tertentu (Indeterminate Loop).</li>
+                <li><strong>Struktur Bersarang (Nested Loop):</strong> Perulangan di dalam perulangan untuk menangani kasus kompleks.</li>
+            </ul>
+        </div>
+
+        <p style="margin-top: 15px;">Sebagai studi kasus utama, algoritma perulangan ini diimplementasikan ke dalam <strong>Sistem Kasir Swalayan Sederhana</strong> untuk mendata banyak jenis barang belanjaan yang dibeli pelanggan secara dinamis.</p>
+
+        <h3>Source Code JavaScript</h3>
+        <p>Berikut adalah kode program asli Node.js berbasis <code>async/await</code> yang dijalankan menggunakan VS Code terminal:</p>
+        <pre style="background-color: #1e1e1e; color: #d4d4d4; font-size: 0.8rem; line-height: 1.5;">
+<span style="color: #569cd6;">const</span> readline = <span style="color: #dcdcaa;">require</span>(<span style="color: #ce9178;">'readline/promises'</span>);
+<span style="color: #569cd6;">const</span> { stdin: input, stdout: output } = <span style="color: #dcdcaa;">require</span>(<span style="color: #ce9178;">'process'</span>);
+
+<span style="color: #569cd6;">async function</span> <span style="color: #dcdcaa;">main</span>() {
+    <span style="color: #569cd6;">const</span> rl = readline.<span style="color: #dcdcaa;">createInterface</span>({ input, output });
+    <span style="color: #569cd6;">let</span> pilihanMenu;
+
+    <span style="color: #569cd6;">do</span> {
+        console.<span style="color: #dcdcaa;">clear</span>();
+        console.<span style="color: #dcdcaa;">log</span>(<span style="color: #ce9178;">"========================================"</span>);
+        console.<span style="color: #dcdcaa;">log</span>(<span style="color: #ce9178;">"    SISTEM KASIR SWALAYAN SEDERHANA     "</span>);
+        console.<span style="color: #dcdcaa;">log</span>(<span style="color: #ce9178;">"========================================"</span>);
+        console.<span style="color: #dcdcaa;">log</span>(<span style="color: #ce9178;">"1. Mulai Transaksi Belanja"</span>);
+        console.<span style="color: #dcdcaa;">log</span>(<span style="color: #ce9178;">"2. Keluar dari Program\n"</span>);
+        
+        pilihanMenu = <span style="color: #569cd6;">await</span> rl.<span style="color: #dcdcaa;">question</span>(<span style="color: #ce9178;">"Pilih menu (1/2): "</span>);
+
+        <span style="color: #569cd6;">if</span> (pilihanMenu === <span style="color: #ce9178;">"1"</span>) {
+            <span style="color: #569cd6;">let</span> inputBarang = <span style="color: #569cd6;">await</span> rl.<span style="color: #dcdcaa;">question</span>(<span style="color: #ce9178;">"\nMasukkan berapa banyak jenis barang yang dibeli: "</span>);
+            <span style="color: #569cd6;">let</span> jumlahJenisBarang = <span style="color: #dcdcaa;">parseInt</span>(inputBarang);
+            
+            <span style="color: #569cd6;">if</span> (<span style="color: #dcdcaa;">isNaN</span>(jumlahJenisBarang) || jumlahJenisBarang <= <span style="color: #b5cea8;">0</span>) {
+                console.<span style="color: #dcdcaa;">log</span>(<span style="color: #ce9178;">"Jumlah barang tidak valid!"</span>);
+                <span style="color: #569cd6;">await</span> rl.<span style="color: #dcdcaa;">question</span>(<span style="color: #ce9178;">"\nTekan Enter untuk melanjutkan..."</span>);
+                <span style="color: #569cd6;">continue</span>; 
+            }
+
+            <span style="color: #6a9955;">// 2. STRUKTUR FOR (PERULANGAN BARANG)</span>
+            <span style="color: #569cd6;">for</span> (<span style="color: #569cd6;">let</span> i = <span style="color: #b5cea8;">1</span>; i <= jumlahJenisBarang; i++) {
+                console.<span style="color: #dcdcaa;">log</span>(<span style="color: #ce9178;">`\n--- Data Barang ke-${i} ---`</span>);
+                
+                <span style="color: #569cd6;">let</span> namaBarang = <span style="color: #569cd6;">await</span> rl.<span style="color: #dcdcaa;">question</span>(<span style="color: #ce9178;">`[Barang ke-${i}] Masukkan Nama Barang: `</span>);
+                <span style="color: #569cd6;">let</span> inputHarga = <span style="color: #569cd6;">await</span> rl.<span style="color: #dcdcaa;">question</span>(<span style="color: #ce9178;">`[Barang ke-${i}] Masukkan Harga Satuan: `</span>);
+                <span style="color: #569cd6;">let</span> inputJumlah = <span style="color: #569cd6;">await</span> rl.<span style="color: #dcdcaa;">question</span>(<span style="color: #ce9178;">`[Barang ke-${i}] Masukkan Jumlah Beli: `</span>);
+
+                <span style="color: #569cd6;">let</span> hargaBarang = <span style="color: #dcdcaa;">parseInt</span>(inputHarga);
+                <span style="color: #569cd6;">let</span> jumlahBeli = <span style="color: #dcdcaa;">parseInt</span>(inputJumlah);
+
+                <span style="color: #569cd6;">let</span> totalPerBarang = hargaBarang * jumlahBeli;
+                console.<span style="color: #dcdcaa;">log</span>(<span style="color: #ce9178;">`Nama Barang  : ${namaBarang}`</span>);
+                console.<span style="color: #dcdcaa;">log</span>(<span style="color: #ce9178;">`Harga Satuan : Rp ${hargaBarang}`</span>);
+                console.<span style="color: #dcdcaa;">log</span>(<span style="color: #ce9178;">`Jumlah Beli  : ${jumlahBeli}`</span>);
+                console.<span style="color: #dcdcaa;">log</span>(<span style="color: #ce9178;">`Total Harga  : Rp ${totalPerBarang}`</span>);
+
+                <span style="color: #6a9955;">// 3. PERULANGAN BERSARANG (NESTED LOOP GRAFIK BINTANG)</span>
+                <span style="color: #569cd6;">let</span> grafikBintang = <span style="color: #ce9178;">""</span>;
+                <span style="color: #569cd6;">for</span> (<span style="color: #569cd6;">let</span> j = <span style="color: #b5cea8;">1</span>; j <= jumlahBeli; j++) {
+                    grafikBintang += <span style="color: #ce9178;">"*"</span>;
+                }
+                console.<span style="color: #dcdcaa;">log</span>(<span style="color: #ce9178;">`Grafik Jumlah: ${grafikBintang} (${jumlahBeli} pcs)`</span>);
+            }
+
+            <span style="color: #6a9955;">// 4. STRUKTUR WHILE (VALIDASI LUNAS)</span>
+            <span style="color: #569cd6;">let</span> konfirmasi = <span style="color: #ce9178;">""</span>;
+            <span style="color: #569cd6;">while</span> (konfirmasi.toUpperCase() !== <span style="color: #ce9178;">"LUNAS"</span>) {
+                konfirmasi = <span style="color: #569cd6;">await</span> rl.<span style="color: #dcdcaa;">question</span>(<span style="color: #ce9178;">"\n[VALIDASI] Ketik 'LUNAS' untuk menyelesaikan pembayaran: "</span>);
+                
+                <span style="color: #569cd6;">if</span> (konfirmasi.toUpperCase() !== <span style="color: #ce9178;">"LUNAS"</span>) {
+                    console.<span style="color: #dcdcaa;">log</span>(<span style="color: #ce9178;">"Status salah! Pembayaran belum diterima."</span>);
+                }
+            }
+            
+            console.<span style="color: #dcdcaa;">log</span>(<span style="color: #ce9178;">"\nTerima kasih! Pembayaran berhasil diverifikasi."</span>);
+            console.<span style="color: #dcdcaa;">log</span>(<span style="color: #ce9178;">"Status Pembayaran: LUNAS"</span>);
+
+        } <span style="color: #569cd6;">else if</span> (pilihanMenu === <span style="color: #ce9178;">"2"</span>) {
+            console.<span style="color: #dcdcaa;">log</span>(<span style="color: #ce9178;">"Sampai jumpa kembali!"</span>);
+        } <span style="color: #569cd6;">else</span> {
+            console.<span style="color: #dcdcaa;">log</span>(<span style="color: #ce9178;">"Pilihan tidak valid! Silakan coba lagi."</span>);
+            <span style="color: #569cd6;">await</span> rl.<span style="color: #dcdcaa;">question</span>(<span style="color: #ce9178;">"\nTekan Enter untuk melanjutkan..."</span>);
+        }
+
+        <span style="color: #569cd6;">if</span> (pilihanMenu !== <span style="color: #ce9178;">"2"</span>) {
+            <span style="color: #569cd6;">let</span> konfirmasiMenu = <span style="color: #569cd6;">await</span> rl.<span style="color: #dcdcaa;">question</span>(<span style="color: #ce9178;">"\nKembali ke menu utama? (y/n): "</span>);
+            <span style="color: #569cd6;">if</span> (konfirmasiMenu.toLowerCase() === <span style="color: #ce9178;">"n"</span>) {
+                pilihanMenu = <span style="color: #ce9178;">"2"</span>; 
+                console.<span style="color: #dcdcaa;">log</span>(<span style="color: #ce9178;">"Program selesai. Terima kasih!"</span>);
+            }
+        }
+
+    } <span style="color: #569cd6;">while</span> (pilihanMenu !== <span style="color: #ce9178;">"2"</span>);
+
+    rl.<span style="color: #dcdcaa;">close</span>();
+}
+<span style="color: #dcdcaa;">main</span>();</pre>
+
+        <h3 style="margin-top: 25px;">Simulasi Program Kasir Interaktif</h3>
+        
+        <div class="app-box" style="background-color: #f1f5f9; border: 2px dashed #cbd5e1; margin-bottom: 20px;">
+            <div style="display: flex; gap: 15px; align-items: flex-end; flex-wrap: wrap;">
+                <div class="input-group" style="margin-bottom: 0; flex: 1; min-width: 200px;">
+                    <label for="jumlahJenisBarang" style="color: #1e3c72; font-weight: bold;">Masukkan berapa banyak jenis barang yang dibeli:</label>
+                    <input type="number" id="jumlahJenisBarang" min="1" max="10" value="3" placeholder="Contoh: 3">
+                </div>
+                <button class="btn-run" onclick="generateFormBarang()" style="width: auto; background-color: #2a5298; padding: 10px 20px;">Set Jumlah Barang</button>
+            </div>
+        </div>
+
+        <div id="containerFormLooping"></div>
+
+        <div id="wrapperTombolHitung" style="display: none; margin-bottom: 25px;">
+            <div class="input-group" style="max-width: 300px; margin-bottom: 15px;">
+                <label for="kasirValidasiFinal" style="font-weight: bold;">[VALIDASI] Ketik 'LUNAS' untuk bayar:</label>
+                <input type="text" id="kasirValidasiFinal" placeholder="Ketik lunas..." value="lunas">
+            </div>
+            <button class="btn-run" onclick="prosesKasirLooping()" style="background-color: #10b981;">Hitung & Jalankan Perulangan</button>
+        </div>
+
+        <div id="areaOutputKasir" style="display: none; margin-top: 20px;">
+            
+            <h3>Hasil Transaksi </h3>
+            <div class="app-box" id="outputUserFriendly" style="background-color: #fff; border: 1px solid #10b981; margin-bottom: 25px; padding: 20px;">
+                </div>
+
+            <h3>Hasil Running Terminal Simulator </h3>
+            <div class="console-output" id="kasirOutputLooping" style="min-height: 300px;"></div>
+        </div>
+        <script src="../script.js"></script>
+</body>
+</html>

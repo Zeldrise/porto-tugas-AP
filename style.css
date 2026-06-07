@@ -1,0 +1,281 @@
+:root {
+    --bg-primary: #f8fafc;
+    --bg-surface: #ffffff;
+    --text-main: #0f172a;
+    --text-muted: #475569;
+    --primary: #4f46e5;
+    --primary-hover: #4338ca;
+    --accent-success: #10b981;
+    --border-color: #e2e8f0;
+    --radius-md: 12px;
+    --radius-sm: 8px;
+    --shadow-sm: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px -1px rgba(0, 0, 0, 0.1);
+    --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
+}
+
+body {
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    background-color: var(--bg-primary);
+    color: var(--text-main);
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+    -webkit-tap-highlight-color: transparent;
+}
+
+header {
+    background: linear-gradient(135deg, #1e1b4b 0%, #312e81 100%);
+    color: #ffffff;
+    padding: 30px 16px;
+    text-align: center;
+    border-bottom: 4px solid var(--primary);
+}
+
+header h1 {
+    margin: 0 0 8px 0;
+    font-size: 1.75rem;
+    font-weight: 700;
+    letter-spacing: -0.025em;
+}
+
+header p {
+    margin: 0;
+    color: #c7d2fe;
+    font-size: 0.9rem;
+    word-break: break-word;
+}
+
+/* Navigasi Tab Modern & Responsive */
+.tab-menu {
+    display: flex;
+    justify-content: flex-start;
+    gap: 8px;
+    background-color: var(--bg-surface);
+    padding: 12px;
+    border-bottom: 1px solid var(--border-color);
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    box-shadow: var(--shadow-sm);
+    overflow-x: auto; /* Memungkinkan scroll horizontal di HP agar menu tidak hancur */
+    white-space: nowrap;
+    -webkit-overflow-scrolling: touch;
+}
+
+/* Menyembunyikan scrollbar bawaan pada menu tab agar estetik */
+.tab-menu::-webkit-scrollbar {
+    display: none;
+}
+
+.tab-button {
+    background: none;
+    border: none;
+    padding: 8px 16px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--text-muted);
+    cursor: pointer;
+    border-radius: var(--radius-sm);
+    transition: all 0.2s ease;
+    flex-shrink: 0; /* Mencegah tombol gepeng di layar kecil */
+}
+
+.tab-button:hover {
+    background-color: #f1f5f9;
+    color: var(--text-main);
+}
+
+.tab-button.active {
+    background-color: #e0e7ff;
+    color: var(--primary);
+}
+
+/* Konten / Wrapper Tab */
+.tab-content {
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 0 16px;
+    display: none;
+    box-sizing: border-bottom;
+}
+
+.tab-content.active {
+    display: block;
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+/* Iframe dibuat fleksibel mengikuti pembungkusnya */
+iframe {
+    width: 100%;
+    background-color: transparent;
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-md);
+    border: 1px solid var(--border-color);
+    box-sizing: border-box;
+}
+
+/* Tata Letak Grid Fleksibel */
+.grid-2 {
+    display: grid;
+    grid-template-columns: 1fr; /* Default 1 kolom untuk HP */
+    gap: 16px;
+    margin-top: 16px;
+}
+
+h2 {
+    font-size: 1.35rem;
+    font-weight: 700;
+    color: #1e293b;
+    margin-top: 10px;
+    margin-bottom: 8px;
+    letter-spacing: -0.02em;
+}
+
+h3 {
+    font-size: 1.1rem;
+    color: #334155;
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+p {
+    color: var(--text-muted);
+    margin: 0 0 12px 0;
+    font-size: 0.95rem;
+}
+
+ul, ol {
+    padding-left: 20px;
+    color: var(--text-muted);
+    font-size: 0.95rem;
+}
+
+li {
+    margin-bottom: 8px;
+}
+
+/* Alert & Box Card */
+.alert-info {
+    background-color: #f0fdf4;
+    border-left: 4px solid var(--accent-success);
+    padding: 14px;
+    border-radius: var(--radius-sm);
+    color: #166534;
+    margin: 16px 0;
+    font-size: 0.9rem;
+}
+
+.app-box {
+    background-color: var(--bg-surface);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    padding: 16px;
+    box-shadow: var(--shadow-sm);
+    margin-top: 12px;
+}
+
+/* Input & Button Simulator Terminal */
+.input-group {
+    margin-bottom: 14px;
+}
+
+.input-group label {
+    display: block;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--text-muted);
+    margin-bottom: 6px;
+}
+
+input[type="number"], input[type="text"] {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-sm);
+    font-size: 0.9rem;
+    box-sizing: border-box;
+    transition: border-color 0.2s;
+}
+
+input:focus {
+    outline: none;
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.1);
+}
+
+.btn-run {
+    background-color: var(--primary);
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+    transition: background-color 0.2s;
+    width: 100%;
+}
+
+/* Code & Output Simulator */
+pre {
+    background-color: #0f172a !important;
+    color: #e2e8f0 !important;
+    padding: 14px;
+    border-radius: var(--radius-sm);
+    font-family: 'Fira Code', 'Courier New', monospace;
+    font-size: 0.8rem;
+    overflow-x: auto;
+}
+
+.console-output {
+    background-color: #0f172a;
+    color: #38bdf8;
+    font-family: 'Fira Code', monospace;
+    padding: 16px;
+    border-radius: var(--radius-md);
+    min-height: 120px;
+    white-space: pre-wrap;
+    font-size: 0.8rem;
+    border: 1px solid #334155;
+    word-break: break-all;
+}
+
+/* ========================================================
+   MEDIA QUERIES (Kunci Utama Agar Tampilan Responsive)
+   ======================================================== */
+
+/* Layar Ukuran Tablet & Laptop (Lebar di atas 768px) */
+@media (min-width: 768px) {
+    header {
+        padding: 40px 24px;
+    }
+    header h1 {
+        font-size: 2rem;
+    }
+    .tab-menu {
+        justify-content: center; /* Menu tab ke tengah di layar lebar */
+    }
+    .tab-button {
+        padding: 10px 20px;
+        font-size: 0.9rem;
+    }
+    .tab-content {
+        padding: 0 24px;
+        margin: 30px auto;
+    }
+    .grid-2 {
+        grid-template-columns: repeat(2, 1fr); /* Menjadi 2 kolom berjejer */
+        gap: 24px;
+    }
+    h2 {
+        font-size: 1.5rem;
+    }
+    .app-box {
+        padding: 24px;
+    }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(6px); }
+    to { opacity: 1; transform: translateY(0); }
+}

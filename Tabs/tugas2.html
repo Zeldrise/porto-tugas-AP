@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="../style.css">
+    <style>
+        body { background: transparent; padding: 0; }
+    </style>
+</head>
+<body>
+        <h2>Tugas 2 - Perhitungan Gaji Bersih (Algoritma Sekuensial)</h2>
+        <p>Algoritma ini dirancang untuk menghitung total gaji bersih yang diterima seorang karyawan dalam satu bulan. Perhitungan dilakukan secara berurutan (sekuensial) dengan ketentuan sebagai berikut:</p>
+        
+        <ul style="margin-bottom: 15px;">
+            <li><strong>Gaji Pokok:</strong> Ditentukan melalui input user.</li>
+            <li><strong>Pajak:</strong> Ditetapkan sebesar 10% dari Gaji Pokok.</li>
+            <li><strong>Tunjangan Tetap:</strong> Ditetapkan sebesar Rp 500.000.</li>
+            <li><strong>Gaji Bersih:</strong> Dihitung dengan rumus: <code>Gaji Pokok - Pajak + Tunjangan</code></li>
+        </ul>
+        
+        <div class="alert-info">
+            <strong>Catatan:</strong> Karena merupakan algoritma sekuensial, tidak ada percabangan (if/else) atau pengecekan kondisi tertentu. Instruksi dikerjakan secara berurutan dari atas ke bawah tanpa adanya kondisi percabangan. Jadi, untuk menentukan kategori gaji (seperti "Gaji Tinggi" atau "Gaji Standar"), kita harus menentukannya sendiri dengan melihat hasil perhitungan akhirnya.
+        </div>
+
+        <h3>Flowchart (Sekuensial)</h3>
+        <p>Alur program berjalan lurus dari atas ke bawah tanpa simbol keputusan (belah ketupat):</p>
+        
+        <div class="grid-2" style="margin-bottom: 20px;">
+            <div class="app-box" style="background-color: #fff; margin-top: 0;">
+                <ol style="margin-left: 15px; font-size: 0.95rem;">
+                    <li style="margin-bottom: 5px;"><strong>Mulai</strong> <span style="color: #64748b;">(Simbol Oval)</span></li>
+                    <li style="margin-bottom: 5px;"><strong>Input gaji_pokok</strong> <span style="color: #64748b;">(Simbol Jajar Genjang)</span></li>
+                    <li style="margin-bottom: 5px;"><strong>Proses pajak = gaji_pokok * 0.10</strong> <span style="color: #64748b;">(Simbol Persegi Panjang)</span></li>
+                    <li style="margin-bottom: 5px;"><strong>Proses gaji_bersih = gaji_pokok - pajak + 500.000</strong> <span style="color: #64748b;">(Simbol Persegi Panjang)</span></li>
+                    <li style="margin-bottom: 5px;"><strong>Output gaji_bersih</strong> <span style="color: #64748b;">(Simbol Jajar Genjang)</span></li>
+                    <li><strong>Selesai</strong> <span style="color: #64748b;">(Simbol Oval)</span></li>
+                </ol>
+            </div>
+            
+            <div class="app-box" style="background-color: #fff; margin-top: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; border: 1px solid #cbd5e1;">
+                <div style="display: flex; flex-direction: column; align-items: center; gap: 8px; font-family: monospace; font-size: 0.85rem; width: 100%; max-width: 250px;">
+                    <div style="border: 2px solid #1e3c72; padding: 4px 15px; border-radius: 20px; background: #eff6ff; width: 100%; text-align: center;">Mulai</div>
+                    <div style="color: #1e3c72;">▼</div>
+                    <div style="border: 2px solid #1e3c72; padding: 6px 10px; transform: skewX(-15deg); background: #eff6ff; width: 100%; text-align: center;"><div style="transform: skewX(15deg);">Input gaji_pokok</div></div>
+                    <div style="color: #1e3c72;">▼</div>
+                    <div style="border: 2px solid #1e3c72; padding: 6px 10px; background: #eff6ff; width: 100%; text-align: center;">pajak = gaji_pokok * 0.10</div>
+                    <div style="color: #1e3c72;">▼</div>
+                    <div style="border: 2px solid #1e3c72; padding: 6px 10px; background: #eff6ff; width: 100%; text-align: center;">gaji_bersih =...</div>
+                    <div style="color: #1e3c72;">▼</div>
+                    <div style="border: 2px solid #1e3c72; padding: 6px 10px; transform: skewX(-15deg); background: #eff6ff; width: 100%; text-align: center;"><div style="transform: skewX(15deg);">Output gaji_bersih</div></div>
+                    <div style="color: #1e3c72;">▼</div>
+                    <div style="border: 2px solid #1e3c72; padding: 4px 15px; border-radius: 20px; background: #eff6ff; width: 100%; text-align: center;">Selesai</div>
+                </div>
+            </div>
+        </div>
+
+        <h3>Kalimat Deskriptif dan Pseudocode</h3>
+        <p><strong>Algoritma_Hitung_Gaji_Bersih:</strong></p>
+        <ol style="margin-left: 20px; margin-bottom: 15px;">
+            <li>Masukkan besaran Gaji Pokok.</li>
+            <li>Hitung nilai Pajak dengan mengalikan Gaji Pokok dengan 0.10.</li>
+            <li>Hitung Gaji Bersih dengan menjumlahkan bobot masing-masing nilai (Gaji Pokok - Pajak + Tunjangan).</li>
+            <li>Tampilkan hasil Gaji Bersih ke layar.</li>
+        </ol>
+
+        <p><strong>Pseudocode:</strong></p>
+        <pre>
+PROGRAM HitungGajiBersih
+DEKLARASI
+    gaji_pokok, pajak, gaji_bersih : float
+ALGORITMA
+    read (gaji_pokok)
+    pajak <- gaji_pokok * 0.10
+    gaji_bersih <- gaji_pokok - pajak + 500000
+    write (gaji_bersih)
+End</pre>
+
+        <h3 style="margin-top: 20px;">Source Code JavaScript</h3>
+        <p>Berikut adalah kode asli pemrograman JavaScript berbasis console terminal yang digunakan untuk mengimplementasikan algoritma di atas menggunakan modul <code>readline</code>:</p>
+        <pre style="background-color: #1e1e1e; color: #d4d4d4;">
+<span style="color: #569cd6;">const</span> readline = <span style="color: #dcdcaa;">require</span>(<span style="color: #ce9178;">"readline"</span>).<span style="color: #dcdcaa;">createInterface</span>({
+    input: process.stdin,
+    output: process.stdout
+});
+
+readline.<span style="color: #dcdcaa;">question</span>(<span style="color: #ce9178;">"Masukkan Gaji Pokok: "</span>, (<span style="color: #9cdcfe;">input_gaji</span>) => {
+    <span style="color: #569cd6;">let</span> gaji_pokok = <span style="color: #dcdcaa;">parseFloat</span>(input_gaji);
+    <span style="color: #569cd6;">let</span> pajak = gaji_pokok * <span style="color: #b5cea8;">0.1</span>;
+    <span style="color: #569cd6;">let</span> tunjangan = <span style="color: #b5cea8;">500000</span>;
+    <span style="color: #569cd6;">let</span> gaji_bersih = gaji_pokok - pajak + tunjangan;
+
+    console.<span style="color: #dcdcaa;">log</span>(<span style="color: #ce9178;">`Pajak (10%) : ${pajak}`</span>);
+    console.<span style="color: #dcdcaa;">log</span>(<span style="color: #ce9178;">`Tunjangan   : ${tunjangan}`</span>);
+    console.<span style="color: #dcdcaa;">log</span>(<span style="color: #ce9178;">`Gaji Bersih : ${gaji_bersih}`</span>);
+
+    readline.<span style="color: #dcdcaa;">close</span>();
+});</pre>
+
+        <h3 style="margin-top: 20px;">Simulasi Program Live (Hasil Running Terminal)</h3>
+        <p>Setelah program dijalankan menggunakan terminal atau aplikasi VS Code, program bisa dijalankan sesuai yang diharapkan. Sebagai contoh, jika dimasukkan Gaji Pokok 3.000.000, maka program akan memproses pajak sebesar 300.000 dan menghasilkan Gaji Bersih 3.200.000.</p>
+        
+        <div class="grid-2">
+            <div>
+                <div class="app-box">
+                    <div class="input-group">
+                        <label for="gajiPokokInput">Masukkan Gaji Pokok (Rp):</label>
+                        <input type="number" id="gajiPokokInput" placeholder="Contoh: 3000000" value="3000000">
+                    </div>
+                    <button class="btn-run" onclick="hitungGajiSekuensial()">Jalankan Program</button>
+                </div>
+            </div>
+            <div>
+                <div class="console-output" id="gajiOutput">Hasil simulasi terminal akan muncul di sini setelah Anda mengklik tombol...</div>
+            </div>
+        </div>
+    
+
+    <script src="../script.js"></script> </body>
+</html>
